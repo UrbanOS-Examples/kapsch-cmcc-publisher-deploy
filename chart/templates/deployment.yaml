@@ -28,7 +28,7 @@ spec:
             - name: cmccdatapublisher.udpPublishHost
               value: {{ .Values.pushGateway.host }}
             - name: cmccdatapublisher.udpPublishPort
-              value: {{ .Values.pushGateway.port }}
+              value: {{ quote .Values.pushGateway.port }}
             - name: cmccdatapublisher.commServicesHost
               value: {{ .Values.commService.host }}
             - name: cmccdatapublisher.commServicesRsu
