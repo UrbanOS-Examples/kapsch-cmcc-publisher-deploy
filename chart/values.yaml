@@ -1,0 +1,26 @@
+replicaCount: 1
+
+image:
+  repository: smartcolumbusos/cmcc-data-publisher
+  tag: latest
+  pullPolicy: Always
+
+pushGateway:
+  host: push-gateway.streaming-services
+  port: 5555
+
+commService:
+  host: ohiort33.etranssystems.com
+  rsu: m14_rsu
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
