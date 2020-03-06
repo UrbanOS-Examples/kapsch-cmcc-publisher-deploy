@@ -1,0 +1,9 @@
+location: marysville
+
+pushGateway:
+  host: push-gateway.streaming-services
+  port: 5555
+
+commService:
+  host: ohiort33.etranssystems.com
+  rsu: m14_rsu

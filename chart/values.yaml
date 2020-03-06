@@ -5,13 +5,15 @@ image:
   tag: latest
   pullPolicy: Always
 
+location: circleville
+
 pushGateway:
-  host: push-gateway.streaming-services
+  host: push-gateway.example.com
   port: 5555
 
 commService:
-  host: ohiort33.etranssystems.com
-  rsu: m14_rsu
+  host: comm-service.example.com
+  rsu: rsu_1
 
 imagePullSecrets: []
 nameOverride: ""

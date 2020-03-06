@@ -23,16 +23,16 @@ node ('infrastructure') {
         scos.doCheckoutStage()
 
         doStageIfDeployingToDev('Deploy to Dev') {
-            deployTo(environment: 'dev')
+            deployTo(environment: 'dev', location: 'marysville')
         }
 
         doStageIfMergedToMaster('Deploy to Staging') {
-            deployTo(environment: 'staging')
+            deployTo(environment: 'staging', location: 'marysville')
             scos.applyAndPushGitHubTag('staging')
         }
 
         doStageIfRelease('Deploy to Production') {
-            deployTo(environment: 'prod')
+            deployTo(environment: 'prod', location: 'marysville')
             scos.applyAndPushGitHubTag('prod')
         }
     }
@@ -40,17 +40,20 @@ node ('infrastructure') {
 
 def deployTo(params = [:]) {
     def environment = params.get('environment')
+    def location = params.get('location')
     def extraArgs = params.get('extraArgs', '')
     if (environment == null) throw new IllegalArgumentException("environment must be specified")
+    if (location == null) throw new IllegalArgumentException("location must be specified")
 
     scos.withEksCredentials(environment) {
         sh("""#!/bin/bash
             set -xe
 
             helm init --client-only
-            helm upgrade --install kapsch-cmcc-publisher chart/ \
-                --namespace=streaming-services \
+            helm upgrade --install kapsch-cmcc-publisher-marysville chart/ \
+                --namespace=vendor-resources \
                 --values=kapsch-cmcc-publisher-base.yaml \
+                --values=${location}-deployment.yaml \
                 ${extraArgs}
         """.trim())
     }
