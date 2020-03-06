@@ -1,7 +1,7 @@
 location: marysville
 
 pushGateway:
-  host: push-gateway.streaming-services
+  host: push-gateway-marysville.streaming-services
   port: 5555
 
 commService:
