@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: smartcolumbusos/cmcc-data-publisher
+  repository: 199837183662.dkr.ecr.us-east-2.amazonaws.com/scos/cmcc-data-publisher
   tag: latest
   pullPolicy: Always
 
