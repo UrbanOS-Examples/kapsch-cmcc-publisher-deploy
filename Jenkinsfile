@@ -8,8 +8,7 @@ library(
 properties([
     pipelineTriggers([scos.dailyBuildTrigger()]),
     parameters([
-        booleanParam(defaultValue: false, description: 'Deploy to development environment?', name: 'DEV_DEPLOYMENT'),
-        string(defaultValue: 'development', description: 'Image tag to deploy to dev environment', name: 'DEV_IMAGE_TAG')
+        booleanParam(defaultValue: false, description: 'Deploy to development environment?', name: 'DEV_DEPLOYMENT')
     ])
 ])
 
