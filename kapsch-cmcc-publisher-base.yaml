@@ -5,8 +5,8 @@ image:
 
 resources:
   limits:
-    memory: 256Mi
+    memory: 2Gi
     cpu: 500m
   requests:
-    memory: 256Mi
+    memory: 2Gi
     cpu: 500m
