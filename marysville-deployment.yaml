@@ -6,4 +6,5 @@ pushGateway:
 
 commService:
   host: ohiort33.etranssystems.com
-  rsu: m14_rsu
+  rsu:
+    - m14_rsu
