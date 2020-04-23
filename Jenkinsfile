@@ -8,7 +8,8 @@ library(
 properties([
     pipelineTriggers([scos.dailyBuildTrigger()]),
     parameters([
-        booleanParam(defaultValue: false, description: 'Deploy to development environment?', name: 'DEV_DEPLOYMENT')
+        booleanParam(defaultValue: false, description: 'Deploy to development environment?', name: 'DEV_DEPLOYMENT'),
+        choice(name: "LOCATION", choices: ['marysville', 'columbus'], description: 'Location to deploy.')
     ])
 ])
 
@@ -22,25 +23,25 @@ node ('infrastructure') {
         scos.doCheckoutStage()
 
         doStageIfDeployingToDev('Deploy to Dev') {
-            deployTo(environment: 'dev', location: 'marysville')
+            deployTo(environment: 'dev')
         }
 
         doStageIfMergedToMaster('Deploy to Staging') {
-            deployTo(environment: 'staging', location: 'marysville')
+            deployTo(environment: 'staging')
             scos.applyAndPushGitHubTag('staging')
         }
 
         doStageIfRelease('Deploy to Production') {
-            deployTo(environment: 'prod', location: 'marysville')
+            deployTo(environment: 'prod')
             scos.applyAndPushGitHubTag('prod')
         }
     }
 }
 
-def deployTo(params = [:]) {
-    def environment = params.get('environment')
-    def location = params.get('location')
-    def extraArgs = params.get('extraArgs', '')
+def deployTo(args = [:]) {
+    def environment = args.get('environment')
+    def location = params.LOCATION
+    def extraArgs = args.get('extraArgs', '')
     if (environment == null) throw new IllegalArgumentException("environment must be specified")
     if (location == null) throw new IllegalArgumentException("location must be specified")
 

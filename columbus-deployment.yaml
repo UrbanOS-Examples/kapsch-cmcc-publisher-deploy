@@ -1,0 +1,11 @@
+location: columbus
+
+pushGateway:
+  host: push-gateway-columbus.streaming-services
+  port: 5555
+
+commService:
+  host: columbus-comm.cv.kapschtraffic.com
+  rsu:
+    - morse_stelzer_rsu
+    - morse_stygler_rsu
