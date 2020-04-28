@@ -7,5 +7,5 @@ pushGateway:
 commService:
   host: columbus-comm.cv.kapschtraffic.com
   rsu:
-    - morse_stelzer_rsu
-    - morse_stygler_rsu
+    - morse_morsecrossing_rsu
+    - morse_sunbury_rsu

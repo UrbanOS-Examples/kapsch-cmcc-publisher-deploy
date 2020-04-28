@@ -38,7 +38,7 @@ spec:
               value: {{ $.Values.commService.host }}
             - name: cmccdatapublisher.commServicesRsu
               value: {{ $rsu }}
-            - name: cmccdatapublisher.commServicesPassowrd
+            - name: cmccdatapublisher.commServicesPassword
               valueFrom:
                 secretKeyRef:
                   name: kapsch-cmcc-publisher-{{ $.Values.location }}
