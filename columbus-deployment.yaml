@@ -1,11 +1,107 @@
 location: columbus
 
+resources:
+  limits:
+    memory: 300Mi
+    cpu: 25m
+  requests:
+    memory: 300Mi
+    cpu: 25m
+
 pushGateway:
   host: push-gateway-columbus.streaming-services
   port: 5555
 
 commService:
+  maxUnits: 40
   host: columbus-comm.cv.kapschtraffic.com
   rsu:
+    - alum_creek_london_groveport_rsu
+    - alumcreek_creekside_rsu
+    - alumcreek_global_rsu
+    - alumcreek_groveport_rsu
+    - alumcreek_i270eb_rsu
+    - alumcreek_i270wb_rsu
+    - alumcreek_rohr_rsu
+    - alumcreek_spiegel_rsu
+    - alumcreek_sr317_rsu
+    - cleveland_11th_rsu
+    - cleveland_17th_rsu
+    - cleveland_20th_rsu
+    - cleveland_24th_rsu
+    - cleveland_2nd_rsu
+    - cleveland_5th_rsu
+    - cleveland_cooke_rsu
+    - cleveland_duxberry_rsu
+    - cleveland_elmore_rsu
+    - cleveland_ferris_rsu
+    - cleveland_genessee_rsu
+    - cleveland_hudson_rsu
+    - cleveland_huy_rsu
+    - cleveland_innis_rsu
+    - cleveland_myrtle_rsu
+    - cleveland_northernlights_rsu
+    - cleveland_oaklandpark_rsu
+    - cleveland_weber_rsu
+    - cleveland_westerville_rsu
+    - cleveland_windsor_rsu
+    - columbus_rsu_danlaw
+    - columbus_rsu_kapch
+    - columbus_rsu_siemens
+    - high_10th_rsu
+    - high_11th_rsu
+    - high_12th_rsu
+    - high_13th_rsu
+    - high_15th_rsu
+    - high_17th_rsu
+    - high_18th_rsu
+    - high_5th_rsu
+    - high_9th_rsu
+    - high_arcadia_rsu
+    - high_chittenden_rsu
+    - high_como_rsu
+    - high_cooke_rsu
+    - high_dodridge_rsu
+    - high_dominion_rsu
+    - high_henderson_rsu
+    - high_hollenback_rsu
+    - high_hudson_rsu
+    - high_kelso_rsu
+    - high_king_rsu
+    - high_lane_rsu
+    - high_morse_rsu
+    - high_northbroadway_rsu
+    - high_northwood_rsu
+    - high_oaklandpark_rsu
+    - high_olentangy_rsu
+    - high_pacemount_rsu
+    - high_patterson_rsu
+    - high_torrence_rsu
+    - high_weber_rsu
+    - high_weisheimer_rsu
+    - high_woodruff_rsu
+    - morse_1270nb_rsu
+    - morse_I270sb_rsu
+    - morse_appian_rsu
+    - morse_chesford_rsu
+    - morse_cleveland_rsu
+    - morse_eastonloop_rsu
+    - morse_evanswood_rsu
+    - morse_heaton_rsu
+    - morse_indianola_rsu
+    - morse_karl_rsu
+    - morse_lbrands_rsu
+    - morse_maize_rsu
+    - morse_malin_rsu
+    - morse_mcfadden_rsu
     - morse_morsecrossing_rsu
+    - morse_ni71ramp_rsu
+    - morse_northlandridge_rsu
+    - morse_sandylane_rsu
+    - morse_si71ramp_rsu
+    - morse_stelzer_rsu
+    - morse_stygler_rsu
     - morse_sunbury_rsu
+    - morse_tamarack_rsu
+    - morse_walford_rsu
+    - morse_westerville_rsu
