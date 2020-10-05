@@ -13,7 +13,6 @@ pushGateway:
   port: 5555
 
 commService:
-  maxUnits: 40
   host: columbus-comm.cv.kapschtraffic.com
   rsu:
     - alum_creek_london_groveport_rsu
