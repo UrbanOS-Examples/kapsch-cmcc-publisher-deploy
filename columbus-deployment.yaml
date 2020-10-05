@@ -15,15 +15,6 @@ pushGateway:
 commService:
   host: columbus-comm.cv.kapschtraffic.com
   rsu:
-    - alum_creek_london_groveport_rsu
-    - alumcreek_creekside_rsu
-    - alumcreek_global_rsu
-    - alumcreek_groveport_rsu
-    - alumcreek_i270eb_rsu
-    - alumcreek_i270wb_rsu
-    - alumcreek_rohr_rsu
-    - alumcreek_spiegel_rsu
-    - alumcreek_sr317_rsu
     - cleveland_11th_rsu
     - cleveland_17th_rsu
     - cleveland_20th_rsu
@@ -44,9 +35,6 @@ commService:
     - cleveland_weber_rsu
     - cleveland_westerville_rsu
     - cleveland_windsor_rsu
-    - columbus_rsu_danlaw
-    - columbus_rsu_kapch
-    - columbus_rsu_siemens
     - high_10th_rsu
     - high_11th_rsu
     - high_12th_rsu
@@ -80,13 +68,13 @@ commService:
     - high_weisheimer_rsu
     - high_woodruff_rsu
     - morse_1270nb_rsu
-    - morse_I270sb_rsu
     - morse_appian_rsu
     - morse_chesford_rsu
     - morse_cleveland_rsu
     - morse_eastonloop_rsu
     - morse_evanswood_rsu
     - morse_heaton_rsu
+    - morse_I270sb_rsu
     - morse_indianola_rsu
     - morse_karl_rsu
     - morse_lbrands_rsu
