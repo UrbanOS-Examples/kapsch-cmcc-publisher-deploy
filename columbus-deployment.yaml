@@ -3,10 +3,10 @@ location: columbus
 resources:
   limits:
     memory: 300Mi
-    cpu: 25m
+    cpu: 30m
   requests:
     memory: 300Mi
-    cpu: 25m
+    cpu: 30m
 
 pushGateway:
   host: push-gateway-columbus.streaming-services

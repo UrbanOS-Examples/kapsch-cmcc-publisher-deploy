@@ -58,7 +58,7 @@ spec:
                     name: kapsch-cmcc-publisher-{{ $.Values.location }}
                     key: password
             resources:
-              {{- toYaml $.Values.resources | nindent 12 }}
+              {{- toYaml $.Values.resources | nindent 14 }}
           {{- with $.Values.nodeSelector }}
           nodeSelector:
             {{- toYaml . | nindent 8 }}
