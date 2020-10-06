@@ -18,6 +18,7 @@ commService:
 dataTypes:
   - SPAT
   - BSM
+  - MAP
 
 imagePullSecrets: []
 nameOverride: ""
