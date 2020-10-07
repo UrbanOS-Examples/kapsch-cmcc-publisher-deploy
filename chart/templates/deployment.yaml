@@ -1,5 +1,5 @@
 {{- $totalUnits := len .Values.commService.rsu -}}
-{{- $maxUnits := default $totalUnits .Values.commService.maxUnits -}}
+{{- $maxUnits := default $totalUnits .Values.commService.maxUnits | min $totalUnits -}}
 {{- $sublist := slice .Values.commService.rsu 0 $maxUnits -}}
 {{- range $i, $rsu := $sublist }}
 {{- $suffix := $rsu | replace "_" "-" | lower -}}
