@@ -9,7 +9,8 @@ properties([
     pipelineTriggers([scos.dailyBuildTrigger()]),
     parameters([
         booleanParam(defaultValue: false, description: 'Deploy to development environment?', name: 'DEV_DEPLOYMENT'),
-        choice(name: "LOCATION", choices: ['marysville', 'columbus'], description: 'Location to deploy.')
+        choice(name: "LOCATION", choices: ['marysville', 'columbus'], description: 'Location to deploy.'),
+        string(name: 'MAX_UNITS', defaultValue: '10', description: 'If not deploying to prod, defines the number of RSUs from the list to deploy.')
     ])
 ])
 
@@ -23,11 +24,11 @@ node ('infrastructure') {
         scos.doCheckoutStage()
 
         doStageIfDeployingToDev('Deploy to Dev') {
-            deployTo(environment: 'dev')
+            deployTo(environment: 'dev', extraArgs: "--set commService.maxUnits=${params.MAX_UNITS}")
         }
 
         doStageIfMergedToMaster('Deploy to Staging') {
-            deployTo(environment: 'staging')
+            deployTo(environment: 'staging', extraArgs: "--set commService.maxUnits=${params.MAX_UNITS}")
             scos.applyAndPushGitHubTag('staging')
         }
 

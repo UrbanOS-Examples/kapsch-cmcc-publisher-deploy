@@ -1,6 +1,6 @@
-{{- $maxUnits := default 99999999 .Values.commService.maxUnits -}}
-{{- $rsuLimit := len .Values.commService.rsu | min $maxUnits -}}
-{{- $sublist := slice .Values.commService.rsu 0 $rsuLimit -}}
+{{- $totalUnits := len .Values.commService.rsu -}}
+{{- $maxUnits := default $totalUnits .Values.commService.maxUnits -}}
+{{- $sublist := slice .Values.commService.rsu 0 $maxUnits -}}
 {{- range $i, $rsu := $sublist }}
 {{- $suffix := $rsu | replace "_" "-" | lower -}}
 apiVersion: batch/v1beta1
@@ -17,7 +17,7 @@ spec:
   {{ $randomInt := randNumeric 3 | atoi -}}
   schedule: "{{ mod $randomInt 59}} * * * *"
   concurrencyPolicy: Replace
-  successfulJobsHistoryLimit: 1
+  successfulJobsHistoryLimit: 0
   failedJobsHistoryLimit: 1
   replicas: {{ $.Values.replicaCount }}
   selector:
@@ -73,3 +73,36 @@ spec:
         {{- end }}
 ---
 {{- end }}
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "{{ $.Values.location }}-unit-placeholder"
+spec:
+  replicas: {{ sub $totalUnits $maxUnits }}
+  template:
+    metadata:
+      labels:
+        app: "{{ $.Values.location }}-unit-placeholder"
+    spec:
+      containers:
+      - name: "{{ $.Values.location }}-unit-placeholder"
+        image: "busybox:latest"
+        imagePullPolicy: IfNotPresent
+        command: ["tail", "-f", "/dev/null"]
+        resources:
+          {{- toYaml $.Values.resources | nindent 10 }}
+        livenessProbe:
+          exec:
+            command:
+            - cat
+            - /dev/null
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        readinessProbe:
+          exec:
+            command:
+            - cat
+            - /dev/null
+          initialDelaySeconds: 5
+          periodSeconds: 5
