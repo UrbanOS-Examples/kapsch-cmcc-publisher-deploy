@@ -19,6 +19,9 @@ dataTypes:
   - SPAT
   - BSM
   - MAP
+  - TIM
+  - SRM
+  - SSM
 
 imagePullSecrets: []
 nameOverride: ""
