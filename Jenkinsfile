@@ -50,7 +50,6 @@ def deployTo(args = [:]) {
         sh("""#!/bin/bash
             set -xe
 
-            helm init --client-only
             helm upgrade --install kapsch-cmcc-publisher-${location} chart/ \
                 --namespace=vendor-resources \
                 --values=kapsch-cmcc-publisher-base.yaml \
