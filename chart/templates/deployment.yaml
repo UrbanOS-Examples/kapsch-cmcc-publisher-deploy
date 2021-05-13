@@ -80,6 +80,10 @@ metadata:
   name: "{{ $.Values.location }}-unit-placeholder"
 spec:
   replicas: {{ sub $totalUnits $maxUnits }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: kapsch-cmcc-publisher-{{ $.Values.location }}-placeholder
+      app.kubernetes.io/instance: {{ $.Release.Name }}
   template:
     metadata:
       labels:
