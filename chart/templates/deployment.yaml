@@ -19,11 +19,6 @@ spec:
   concurrencyPolicy: Replace
   successfulJobsHistoryLimit: 0
   failedJobsHistoryLimit: 1
-  replicas: {{ $.Values.replicaCount }}
-  selector:
-    matchLabels:
-      app.kubernetes.io/name: kapsch-cmcc-publisher-{{ $.Values.location }}-{{ $suffix }}
-      app.kubernetes.io/instance: {{ $.Release.Name }}
   jobTemplate:
     spec:
       template:
