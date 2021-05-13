@@ -82,7 +82,8 @@ spec:
   template:
     metadata:
       labels:
-        app: "{{ $.Values.location }}-unit-placeholder"
+        app.kubernetes.io/name: kapsch-cmcc-publisher-{{ $.Values.location }}-placeholder
+        app.kubernetes.io/instance: {{ $.Release.Name }}
     spec:
       containers:
       - name: "{{ $.Values.location }}-unit-placeholder"
